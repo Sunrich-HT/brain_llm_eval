@@ -1,0 +1,21 @@
+System: You are a stroke neurology specialist with extensive experience in patient outcome prediction.
+
+Examples:
+
+Example 1:
+Patient: Age: 65, Gender: Male, Living situation: Independent, Education: Secondary, D-dimer: 0.3, Hemoglobin: 145, CRP: 0.8, Albumin: 42.5, Uric acid: 350, Glucose: 5.8, BMI: 24.2, Systolic BP: 125, Diastolic BP: 75, Hypertension: No, Diabetes: No, Stroke episodes: 1, Regular exercise: Yes
+Reasoning: Younger age with excellent physiological reserve. Normal inflammatory markers (CRP: 0.8). No major comorbidities with active lifestyle. Low D-dimer suggests minimal coagulation issues. First stroke with excellent rehabilitation potential.
+Recovery Score: 95
+
+Example 2:
+Patient: Age: 78, Gender: Female, Living situation: Assisted, Education: Primary, D-dimer: 1.2, Hemoglobin: 132, CRP: 8.5, Albumin: 38.1, Uric acid: 420, Glucose: 9.2, BMI: 27.8, Systolic BP: 165, Diastolic BP: 95, Hypertension: Yes, Diabetes: Yes, Stroke episodes: 1, Regular exercise: No
+Reasoning: Advanced age with multiple comorbidities. Elevated inflammation (CRP: 8.5) and poor glucose control (9.2). Limited mobility and rehabilitation constraints affecting recovery potential. Elevated D-dimer indicating ongoing coagulation issues.
+Recovery Score: 65
+
+Example 3:
+Patient: Age: 72, Gender: Male, Living situation: Independent, Education: Secondary, D-dimer: 0.5, Hemoglobin: 140, CRP: 3.2, Albumin: 41.0, Uric acid: 385, Glucose: 6.5, BMI: 25.5, Systolic BP: 145, Diastolic BP: 85, Hypertension: Yes, Diabetes: No, Stroke episodes: 1, Regular exercise: Yes
+Reasoning: Moderate age with controlled comorbidities. Acceptable inflammatory status (CRP: 3.2). Active lifestyle supports rehabilitation. Hypertension controlled, no diabetes. Good physiological parameters overall.
+Recovery Score: 80
+
+User: Patient data: {patient_data}
+Predict recovery score (0-100):

@@ -1,0 +1,231 @@
+{
+  "recovery_prediction": [
+    {
+      "id": "recovery_example_1",
+      "patient_data": {
+        "age": 65,
+        "gender": "Male",
+        "living_situation": "Independent",
+        "education": "Secondary",
+        "d_dimer": 0.3,
+        "hemoglobin": 145,
+        "crp": 0.8,
+        "albumin": 42.5,
+        "uric_acid": 350,
+        "glucose": 5.8,
+        "bmi": 24.2,
+        "systolic_bp": 125,
+        "diastolic_bp": 75,
+        "hypertension": "No",
+        "diabetes": "No",
+        "stroke_episodes": 1,
+        "regular_exercise": "Yes"
+      },
+      "clinical_reasoning": "Younger age with excellent physiological reserve. Normal inflammatory markers (CRP: 0.8). No major comorbidities with active lifestyle. Low D-dimer suggests minimal coagulation issues. First stroke with excellent rehabilitation potential.",
+      "recovery_score": 95,
+      "complexity": "low",
+      "outcome_category": "high_recovery"
+    },
+    {
+      "id": "recovery_example_2",
+      "patient_data": {
+        "age": 78,
+        "gender": "Female",
+        "living_situation": "Assisted",
+        "education": "Primary",
+        "d_dimer": 1.2,
+        "hemoglobin": 132,
+        "crp": 8.5,
+        "albumin": 38.1,
+        "uric_acid": 420,
+        "glucose": 9.2,
+        "bmi": 27.8,
+        "systolic_bp": 165,
+        "diastolic_bp": 95,
+        "hypertension": "Yes",
+        "diabetes": "Yes",
+        "stroke_episodes": 1,
+        "regular_exercise": "No"
+      },
+      "clinical_reasoning": "Advanced age with multiple comorbidities. Elevated inflammation (CRP: 8.5) and poor glucose control (9.2). Limited mobility and rehabilitation constraints affecting recovery potential. Elevated D-dimer indicating ongoing coagulation issues.",
+      "recovery_score": 65,
+      "complexity": "high",
+      "outcome_category": "moderate_recovery"
+    },
+    {
+      "id": "recovery_example_3",
+      "patient_data": {
+        "age": 72,
+        "gender": "Male",
+        "living_situation": "Independent",
+        "education": "Secondary",
+        "d_dimer": 0.5,
+        "hemoglobin": 140,
+        "crp": 3.2,
+        "albumin": 41.0,
+        "uric_acid": 385,
+        "glucose": 6.5,
+        "bmi": 25.5,
+        "systolic_bp": 145,
+        "diastolic_bp": 85,
+        "hypertension": "Yes",
+        "diabetes": "No",
+        "stroke_episodes": 1,
+        "regular_exercise": "Yes"
+      },
+      "clinical_reasoning": "Moderate age with controlled comorbidities. Acceptable inflammatory status (CRP: 3.2). Active lifestyle supports rehabilitation. Hypertension controlled, no diabetes. Good physiological parameters overall.",
+      "recovery_score": 80,
+      "complexity": "medium",
+      "outcome_category": "good_recovery"
+    },
+    {
+      "id": "recovery_example_4",
+      "patient_data": {
+        "age": 58,
+        "gender": "Female",
+        "living_situation": "Independent",
+        "education": "University",
+        "d_dimer": 0.4,
+        "hemoglobin": 138,
+        "crp": 1.5,
+        "albumin": 44.2,
+        "uric_acid": 295,
+        "glucose": 5.4,
+        "bmi": 23.1,
+        "systolic_bp": 120,
+        "diastolic_bp": 70,
+        "hypertension": "No",
+        "diabetes": "No",
+        "stroke_episodes": 1,
+        "regular_exercise": "Yes"
+      },
+      "clinical_reasoning": "Younger age with optimal metabolic profile. Minimal inflammatory response (CRP: 1.5). Excellent nutritional status (albumin: 44.2). No cardiovascular risk factors. Strong rehabilitation potential.",
+      "recovery_score": 92,
+      "complexity": "low",
+      "outcome_category": "high_recovery"
+    },
+    {
+      "id": "recovery_example_5",
+      "patient_data": {
+        "age": 82,
+        "gender": "Male",
+        "living_situation": "Nursing home",
+        "education": "Primary",
+        "d_dimer": 2.1,
+        "hemoglobin": 118,
+        "crp": 15.2,
+        "albumin": 32.8,
+        "uric_acid": 485,
+        "glucose": 11.8,
+        "bmi": 19.5,
+        "systolic_bp": 175,
+        "diastolic_bp": 105,
+        "hypertension": "Yes",
+        "diabetes": "Yes",
+        "stroke_episodes": 3,
+        "regular_exercise": "No"
+      },
+      "clinical_reasoning": "Advanced age with severe comorbidity burden. High inflammatory state (CRP: 15.2) and poor metabolic control. Multiple previous strokes. Institutional care setting indicates functional dependency. Poor nutritional status and elevated D-dimer suggest complex pathophysiology.",
+      "recovery_score": 35,
+      "complexity": "high",
+      "outcome_category": "poor_recovery"
+    }
+  ],
+  "stroke_classification": [
+    {
+      "id": "classification_example_1",
+      "patient_data": {
+        "age": 72,
+        "gender": "Male",
+        "d_dimer": 0.8,
+        "hemoglobin": 140,
+        "crp": 3.2,
+        "albumin": 41.0,
+        "glucose": 6.5,
+        "bmi": 25.5,
+        "hypertension": "Yes",
+        "diabetes": "No"
+      },
+      "clinical_reasoning": "Moderately elevated D-dimer (0.8) suggesting thrombotic mechanism. Normal hemoglobin (140) excludes major bleeding. Mild inflammatory response (CRP: 3.2). Laboratory pattern consistent with ischemic stroke mechanism.",
+      "level1_classification": "Ischemic",
+      "level2_subtype": "Cerebral Infarction",
+      "confidence": "high"
+    },
+    {
+      "id": "classification_example_2",
+      "patient_data": {
+        "age": 68,
+        "gender": "Female",
+        "d_dimer": 0.2,
+        "hemoglobin": 118,
+        "crp": 12.5,
+        "albumin": 36.8,
+        "glucose": 7.1,
+        "bmi": 28.2,
+        "hypertension": "Yes",
+        "diabetes": "Yes"
+      },
+      "clinical_reasoning": "Low D-dimer (0.2) with reduced hemoglobin (118) suggesting bleeding mechanism. Elevated inflammatory response (CRP: 12.5) consistent with hemorrhagic stroke. Pattern indicates cerebral hemorrhage subtype.",
+      "level1_classification": "Hemorrhagic",
+      "level2_subtype": "Cerebral Hemorrhage",
+      "confidence": "high"
+    },
+    {
+      "id": "classification_example_3",
+      "patient_data": {
+        "age": 75,
+        "gender": "Male",
+        "d_dimer": 1.5,
+        "hemoglobin": 125,
+        "crp": 6.8,
+        "albumin": 39.2,
+        "glucose": 8.2,
+        "bmi": 26.8,
+        "hypertension": "Yes",
+        "diabetes": "Yes"
+      },
+      "clinical_reasoning": "Elevated D-dimer (1.5) indicating significant coagulation activation. Slightly reduced hemoglobin with moderate inflammation. Complex pattern suggesting thrombotic mechanism with embolic features.",
+      "level1_classification": "Ischemic",
+      "level2_subtype": "Cerebral Thrombosis",
+      "confidence": "medium"
+    },
+    {
+      "id": "classification_example_4",
+      "patient_data": {
+        "age": 59,
+        "gender": "Female",
+        "d_dimer": 2.8,
+        "hemoglobin": 142,
+        "crp": 4.1,
+        "albumin": 40.5,
+        "glucose": 5.9,
+        "bmi": 24.8,
+        "hypertension": "No",
+        "diabetes": "No"
+      },
+      "clinical_reasoning": "Very high D-dimer (2.8) with normal hemoglobin suggests major thrombotic event. Mild inflammatory response. Young age with no traditional risk factors suggests embolic mechanism, possibly cardiac origin.",
+      "level1_classification": "Ischemic",
+      "level2_subtype": "Cerebral Embolism",
+      "confidence": "medium"
+    },
+    {
+      "id": "classification_example_5",
+      "patient_data": {
+        "age": 45,
+        "gender": "Male",
+        "d_dimer": 0.6,
+        "hemoglobin": 155,
+        "crp": 18.9,
+        "albumin": 38.9,
+        "glucose": 12.5,
+        "bmi": 31.2,
+        "hypertension": "Yes",
+        "diabetes": "Yes"
+      },
+      "clinical_reasoning": "Young age with severe metabolic dysfunction. Very high inflammatory markers (CRP: 18.9) with moderate D-dimer. High glucose and BMI suggest metabolic syndrome. Complex presentation with mixed indicators making classification challenging.",
+      "level1_classification": "Undefined",
+      "level2_subtype": "Mixed/Atypical Pattern",
+      "confidence": "low"
+    }
+  ]
+}

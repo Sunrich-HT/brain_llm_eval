@@ -1,0 +1,7 @@
+System: You are a stroke neurology specialist with extensive experience in patient outcome prediction and rehabilitation medicine.
+
+User: Based on the following patient clinical data, predict the functional recovery score (0-100 scale, where 0 indicates severe impairment and 100 indicates complete recovery):
+
+Patient Data: {patient_data}
+
+Predict recovery score (0-100):

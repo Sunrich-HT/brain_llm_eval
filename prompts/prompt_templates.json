@@ -1,0 +1,86 @@
+{
+  "task1_recovery_zero_shot": {
+    "system_message": "You are a stroke neurology specialist with extensive experience in patient outcome prediction and rehabilitation medicine.",
+    "user_template": "Based on the following patient clinical data, predict the functional recovery score (0-100 scale, where 0 indicates severe impairment and 100 indicates complete recovery):\n\nPatient Data: {patient_data}\n\nPredict recovery score (0-100):",
+    "output_format": "Single numerical value between 0-100",
+    "task": "recovery_prediction",
+    "strategy": "zero_shot"
+  },
+
+  "task1_recovery_cot": {
+    "system_message": "You are a stroke neurology specialist with extensive experience in patient outcome prediction and rehabilitation medicine.",
+    "user_template": "Analyze the following stroke patient data step-by-step to predict functional recovery score (0-100 scale):\n\nPatient Clinical Data: {patient_data}\n\nPlease follow this systematic reasoning framework:\n\nStep 1) Risk Factor Assessment: Evaluate demographic factors, living situation, and baseline health status\nStep 2) Laboratory Analysis: Interpret biomarkers including hemoglobin, albumin, and physiological indicators\nStep 3) Inflammation/Coagulation Status: Assess D-dimer, C-reactive protein, and vascular health parameters\nStep 4) Lifestyle Factors: Consider exercise habits, medication compliance, and modifiable factors\nStep 5) Comorbidity Integration: Analyze diabetes, hypertension, and conditions affecting rehabilitation potential\nStep 6) Final Scoring: Synthesize all clinical factors\n\nReasoning: [Detailed step-by-step clinical analysis]\nFinal Recovery Score (0-100): [Numerical prediction]",
+    "output_format": "Structured response with reasoning steps and final numerical score",
+    "task": "recovery_prediction",
+    "strategy": "chain_of_thought"
+  },
+
+  "task1_recovery_few_shot": {
+    "system_message": "You are a stroke neurology specialist with extensive experience in patient outcome prediction.",
+    "examples": [
+      {
+        "patient_data": "Age: 65, Gender: Male, Living situation: Independent, Education: Secondary, D-dimer: 0.3, Hemoglobin: 145, CRP: 0.8, Albumin: 42.5, Uric acid: 350, Glucose: 5.8, BMI: 24.2, Systolic BP: 125, Diastolic BP: 75, Hypertension: No, Diabetes: No, Stroke episodes: 1, Regular exercise: Yes",
+        "reasoning": "Younger age with excellent physiological reserve. Normal inflammatory markers (CRP: 0.8). No major comorbidities with active lifestyle. Low D-dimer suggests minimal coagulation issues. First stroke with excellent rehabilitation potential.",
+        "recovery_score": 95
+      },
+      {
+        "patient_data": "Age: 78, Gender: Female, Living situation: Assisted, Education: Primary, D-dimer: 1.2, Hemoglobin: 132, CRP: 8.5, Albumin: 38.1, Uric acid: 420, Glucose: 9.2, BMI: 27.8, Systolic BP: 165, Diastolic BP: 95, Hypertension: Yes, Diabetes: Yes, Stroke episodes: 1, Regular exercise: No",
+        "reasoning": "Advanced age with multiple comorbidities. Elevated inflammation (CRP: 8.5) and poor glucose control (9.2). Limited mobility and rehabilitation constraints affecting recovery potential. Elevated D-dimer indicating ongoing coagulation issues.",
+        "recovery_score": 65
+      },
+      {
+        "patient_data": "Age: 72, Gender: Male, Living situation: Independent, Education: Secondary, D-dimer: 0.5, Hemoglobin: 140, CRP: 3.2, Albumin: 41.0, Uric acid: 385, Glucose: 6.5, BMI: 25.5, Systolic BP: 145, Diastolic BP: 85, Hypertension: Yes, Diabetes: No, Stroke episodes: 1, Regular exercise: Yes",
+        "reasoning": "Moderate age with controlled comorbidities. Acceptable inflammatory status (CRP: 3.2). Active lifestyle supports rehabilitation. Hypertension controlled, no diabetes. Good physiological parameters overall.",
+        "recovery_score": 80
+      }
+    ],
+    "user_template": "Examples:\n\n{examples}\n\nPatient data: {patient_data}\nPredict recovery score (0-100):",
+    "output_format": "Single numerical value between 0-100",
+    "task": "recovery_prediction",
+    "strategy": "few_shot"
+  },
+
+  "task2_classification_zero_shot": {
+    "system_message": "You are a stroke diagnosis specialist with expertise in cerebrovascular disease classification according to established clinical guidelines.",
+    "user_template": "Based on the clinical data, classify the stroke type using hierarchical diagnostic criteria:\n\nPatient Data: {patient_data}\n\nLevel 1 Classification: [Ischemic/Hemorrhagic/Undefined]\nLevel 2 Subtype: [Specific diagnostic subtype]",
+    "output_format": "Two-level hierarchical classification",
+    "task": "stroke_classification",
+    "strategy": "zero_shot"
+  },
+
+  "task2_classification_cot": {
+    "system_message": "You are a stroke diagnosis specialist with expertise in cerebrovascular disease classification according to AHA/ASA guidelines.",
+    "user_template": "Analyze the following patient data systematically to classify stroke type using established diagnostic protocols:\n\nPatient Data: {patient_data}\n\nFollow this systematic diagnostic framework:\n\nStep 1) Coagulation Analysis: Interpret D-dimer levels and implications for thrombotic vs hemorrhagic mechanisms\nStep 2) Inflammatory Assessment: Evaluate C-reactive protein and inflammatory markers indicating vascular pathology\nStep 3) Hematological Evaluation: Assess hemoglobin and related parameters for bleeding risk and hematological disorders\nStep 4) Metabolic Assessment: Analyze glucose, lipids, and metabolic factors influencing stroke etiology\nStep 5) Clinical Integration: Synthesize laboratory findings with demographics and clinical history\nStep 6) Level 1 Classification: Determine primary mechanism (Ischemic/Hemorrhagic/Undefined) based on integrated assessment\nStep 7) Subtype Determination: Specify detailed diagnostic category within primary classification\n\nDiagnostic Reasoning: [Step-by-step clinical analysis]\nLevel 1 Classification: [Ischemic/Hemorrhagic/Undefined]\nLevel 2 Subtype: [Specific diagnostic category]",
+    "output_format": "Structured response with reasoning steps and hierarchical classification",
+    "task": "stroke_classification",
+    "strategy": "chain_of_thought"
+  },
+
+  "task2_classification_few_shot": {
+    "system_message": "You are a stroke diagnosis specialist with expertise in cerebrovascular disease classification.",
+    "examples": [
+      {
+        "patient_data": "Age: 72, Gender: Male, D-dimer: 0.8, Hemoglobin: 140, CRP: 3.2, Albumin: 41.0, Glucose: 6.5, BMI: 25.5, Hypertension: Yes, Diabetes: No",
+        "reasoning": "Moderately elevated D-dimer (0.8) suggesting thrombotic mechanism. Normal hemoglobin (140) excludes major bleeding. Mild inflammatory response (CRP: 3.2). Laboratory pattern consistent with ischemic stroke mechanism.",
+        "level1": "Ischemic",
+        "level2": "Cerebral Infarction"
+      },
+      {
+        "patient_data": "Age: 68, Gender: Female, D-dimer: 0.2, Hemoglobin: 118, CRP: 12.5, Albumin: 36.8, Glucose: 7.1, BMI: 28.2, Hypertension: Yes, Diabetes: Yes",
+        "reasoning": "Low D-dimer (0.2) with reduced hemoglobin (118) suggesting bleeding mechanism. Elevated inflammatory response (CRP: 12.5) consistent with hemorrhagic stroke. Pattern indicates cerebral hemorrhage subtype.",
+        "level1": "Hemorrhagic",
+        "level2": "Cerebral Hemorrhage"
+      },
+      {
+        "patient_data": "Age: 75, Gender: Male, D-dimer: 1.5, Hemoglobin: 125, CRP: 6.8, Albumin: 39.2, Glucose: 8.2, BMI: 26.8, Hypertension: Yes, Diabetes: Yes",
+        "reasoning": "Elevated D-dimer (1.5) indicating significant coagulation activation. Slightly reduced hemoglobin with moderate inflammation. Complex pattern suggesting thrombotic mechanism with embolic features.",
+        "level1": "Ischemic",
+        "level2": "Cerebral Thrombosis"
+      }
+    ],
+    "user_template": "Examples:\n\n{examples}\n\nPatient data: {patient_data}\nLevel 1 Classification: [Ischemic/Hemorrhagic/Undefined]\nLevel 2 Subtype: [Specific diagnostic subtype]",
+    "output_format": "Two-level hierarchical classification",
+    "task": "stroke_classification",
+    "strategy": "few_shot"
+  }
+}

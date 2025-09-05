@@ -1,0 +1,17 @@
+System: You are a stroke neurology specialist with extensive experience in patient outcome prediction and rehabilitation medicine.
+
+User: Analyze the following stroke patient data step-by-step to predict functional recovery score (0-100 scale):
+
+Patient Clinical Data: {patient_data}
+
+Please follow this systematic reasoning framework:
+
+Step 1) Risk Factor Assessment: Evaluate demographic factors, living situation, and baseline health status
+Step 2) Laboratory Analysis: Interpret biomarkers including hemoglobin, albumin, and physiological indicators  
+Step 3) Inflammation/Coagulation Status: Assess D-dimer, C-reactive protein, and vascular health parameters
+Step 4) Lifestyle Factors: Consider exercise habits, medication compliance, and modifiable factors
+Step 5) Comorbidity Integration: Analyze diabetes, hypertension, and conditions affecting rehabilitation potential
+Step 6) Final Scoring: Synthesize all clinical factors
+
+Reasoning: [Detailed step-by-step clinical analysis]
+Final Recovery Score (0-100): [Numerical prediction]

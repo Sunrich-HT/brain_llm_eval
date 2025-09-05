@@ -1,0 +1,140 @@
+# Prompt Configuration for Stroke LLM Evaluation
+# This file defines the structure and metadata for all prompt templates
+
+prompt_metadata:
+  version: "1.0.0"
+  created_date: "2025-01-07"
+  description: "Prompt templates for evaluating LLMs on stroke neurology tasks"
+  paper_reference: "BIOADV-2025-317"
+
+tasks:
+  recovery_prediction:
+    name: "Functional Recovery Prediction"
+    description: "Predict patient recovery scores (0-100 scale) based on clinical data"
+    output_type: "numerical"
+    output_range: [0, 100]
+    metric: "NMAE"
+    clinical_context: "Post-acute care rehabilitation planning"
+    
+  stroke_classification:
+    name: "Hierarchical Stroke Classification"
+    description: "Classify stroke types using two-level diagnostic hierarchy"
+    output_type: "categorical_hierarchical"
+    levels:
+      level1: ["Ischemic", "Hemorrhagic", "Undefined"]
+      level2:
+        Ischemic: ["Cerebral Infarction", "Cerebral Thrombosis", "Cerebral Embolism"]
+        Hemorrhagic: ["Cerebral Hemorrhage", "Subarachnoid Hemorrhage", "Intracranial Hemorrhage"]
+        Undefined: ["Mixed Pattern", "Atypical Pattern", "Indeterminate"]
+    metrics: ["Level1_Accuracy", "Overall_Accuracy", "Macro_F1", "Balanced_Accuracy"]
+    clinical_context: "Diagnostic workup and treatment planning"
+
+strategies:
+  zero_shot:
+    name: "Zero-shot Learning"
+    description: "Direct task execution without examples"
+    requires_examples: false
+    prompt_components: ["system_message", "task_instruction", "patient_data", "output_format"]
+    
+  chain_of_thought:
+    name: "Chain-of-Thought Reasoning"
+    description: "Step-by-step clinical reasoning framework"
+    requires_examples: false
+    prompt_components: ["system_message", "reasoning_framework", "patient_data", "structured_output"]
+    reasoning_steps:
+      recovery_prediction: 6
+      stroke_classification: 7
+      
+  few_shot:
+    name: "Few-shot Learning"
+    description: "Learning from clinical examples"
+    requires_examples: true
+    shot_configurations: [1, 3, 5]
+    example_selection_strategy: "stratified_diverse"
+    prompt_components: ["system_message", "examples", "patient_data", "output_format"]
+
+prompt_files:
+  recovery_prediction:
+    zero_shot: "recovery_zero_shot.txt"
+    chain_of_thought: "recovery_cot.txt"
+    few_shot: "recovery_few_shot.txt"
+    
+  stroke_classification:
+    zero_shot: "classification_zero_shot.txt"
+    chain_of_thought: "classification_cot.txt"
+    few_shot: "classification_few_shot.txt"
+
+examples:
+  source_file: "few_shot_examples.json"
+  validation_set_size: 20
+  example_categories:
+    recovery_prediction:
+      - "high_recovery" # Score >= 90
+      - "good_recovery" # Score 70-89
+      - "moderate_recovery" # Score 50-69
+      - "poor_recovery" # Score < 50
+    stroke_classification:
+      - "clear_ischemic" # High confidence ischemic
+      - "clear_hemorrhagic" # High confidence hemorrhagic
+      - "complex_pattern" # Mixed or atypical features
+
+clinical_features:
+  demographics:
+    - age
+    - gender
+    - living_situation
+    - education_level
+  laboratory:
+    - d_dimer
+    - hemoglobin
+    - crp
+    - albumin
+    - uric_acid
+    - glucose
+  vital_signs:
+    - bmi
+    - systolic_bp
+    - diastolic_bp
+  clinical_conditions:
+    - hypertension
+    - diabetes
+    - stroke_episodes
+    - regular_exercise
+
+prompt_validation:
+  required_placeholders:
+    - "{patient_data}"
+  output_parsing:
+    recovery_prediction:
+      pattern: "\\b\\d{1,3}\\b"
+      validation: "0 <= score <= 100"
+    stroke_classification:
+      level1_keywords: ["ischemic", "hemorrhagic", "undefined"]
+      level2_keywords: ["infarction", "hemorrhage", "thrombosis", "embolism"]
+
+model_configurations:
+  default_parameters:
+    temperature: 0.0
+    top_p: 0.7
+    max_tokens: 8192
+  
+  model_specific:
+    openai_models:
+      rate_limit: 60  # requests per minute
+      retry_attempts: 3
+    anthropic_models:
+      rate_limit: 50
+      retry_attempts: 3
+    google_models:
+      rate_limit: 120
+      retry_attempts: 3
+
+evaluation_settings:
+  n_runs: 3
+  aggregation_method:
+    recovery_prediction: "mean"
+    stroke_classification: "majority_vote"
+  quality_control:
+    min_response_length: 10
+    max_response_length: 5000
+    non_compliant_threshold: 0.02  # 2% of responses

@@ -1,0 +1,19 @@
+System: You are a stroke diagnosis specialist with expertise in cerebrovascular disease classification according to AHA/ASA guidelines.
+
+User: Analyze the following patient data systematically to classify stroke type using established diagnostic protocols:
+
+Patient Data: {patient_data}
+
+Follow this systematic diagnostic framework:
+
+Step 1) Coagulation Analysis: Interpret D-dimer levels and implications for thrombotic vs hemorrhagic mechanisms
+Step 2) Inflammatory Assessment: Evaluate C-reactive protein and inflammatory markers indicating vascular pathology
+Step 3) Hematological Evaluation: Assess hemoglobin and related parameters for bleeding risk and hematological disorders
+Step 4) Metabolic Assessment: Analyze glucose, lipids, and metabolic factors influencing stroke etiology
+Step 5) Clinical Integration: Synthesize laboratory findings with demographics and clinical history
+Step 6) Level 1 Classification: Determine primary mechanism (Ischemic/Hemorrhagic/Undefined) based on integrated assessment
+Step 7) Subtype Determination: Specify detailed diagnostic category within primary classification
+
+Diagnostic Reasoning: [Step-by-step clinical analysis]
+Level 1 Classification: [Ischemic/Hemorrhagic/Undefined]
+Level 2 Subtype: [Specific diagnostic category]

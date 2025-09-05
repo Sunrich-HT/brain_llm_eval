@@ -1,0 +1,25 @@
+System: You are a stroke diagnosis specialist with expertise in cerebrovascular disease classification.
+
+Examples:
+
+Example 1:
+Patient: Age: 72, Gender: Male, D-dimer: 0.8, Hemoglobin: 140, CRP: 3.2, Albumin: 41.0, Glucose: 6.5, BMI: 25.5, Hypertension: Yes, Diabetes: No
+Reasoning: Moderately elevated D-dimer (0.8) suggesting thrombotic mechanism. Normal hemoglobin (140) excludes major bleeding. Mild inflammatory response (CRP: 3.2). Laboratory pattern consistent with ischemic stroke mechanism.
+Level 1: Ischemic
+Level 2: Cerebral Infarction
+
+Example 2:
+Patient: Age: 68, Gender: Female, D-dimer: 0.2, Hemoglobin: 118, CRP: 12.5, Albumin: 36.8, Glucose: 7.1, BMI: 28.2, Hypertension: Yes, Diabetes: Yes
+Reasoning: Low D-dimer (0.2) with reduced hemoglobin (118) suggesting bleeding mechanism. Elevated inflammatory response (CRP: 12.5) consistent with hemorrhagic stroke. Pattern indicates cerebral hemorrhage subtype.
+Level 1: Hemorrhagic
+Level 2: Cerebral Hemorrhage
+
+Example 3:
+Patient: Age: 75, Gender: Male, D-dimer: 1.5, Hemoglobin: 125, CRP: 6.8, Albumin: 39.2, Glucose: 8.2, BMI: 26.8, Hypertension: Yes, Diabetes: Yes
+Reasoning: Elevated D-dimer (1.5) indicating significant coagulation activation. Slightly reduced hemoglobin with moderate inflammation. Complex pattern suggesting thrombotic mechanism with embolic features.
+Level 1: Ischemic
+Level 2: Cerebral Thrombosis
+
+User: Patient data: {patient_data}
+Level 1 Classification: [Ischemic/Hemorrhagic/Undefined]
+Level 2 Subtype: [Specific diagnostic subtype]

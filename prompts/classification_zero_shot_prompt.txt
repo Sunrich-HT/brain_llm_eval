@@ -1,0 +1,8 @@
+System: You are a stroke diagnosis specialist with expertise in cerebrovascular disease classification according to established clinical guidelines.
+
+User: Based on the clinical data, classify the stroke type using hierarchical diagnostic criteria:
+
+Patient Data: {patient_data}
+
+Level 1 Classification: [Ischemic/Hemorrhagic/Undefined]
+Level 2 Subtype: [Specific diagnostic subtype]
