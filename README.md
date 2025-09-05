@@ -315,44 +315,11 @@ print('Baseline test passed')
 - [ ] Results save to CSV files
 - [ ] Plots generate correctly
 
-## 🤝 Contributing
-
-We welcome contributions! Please follow these guidelines:
-
-### Development Setup
-```bash
-git clone https://github.com/your-username/stroke-llm-evaluation.git
-cd stroke-llm-evaluation
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-pip install -r requirements-dev.txt  # If available
-```
-
-### Code Style
-- Follow PEP 8 guidelines
-- Use type hints where appropriate
-- Add docstrings for all functions
-- Include unit tests for new features
-
-### Pull Request Process
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-feature`)
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-### Reporting Issues
-Please use the GitHub issue tracker to report bugs or request features. Include:
-- Python version
-- Operating system
-- Full error traceback
-- Steps to reproduce
 
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 🏥 Clinical Disclaimer
 
