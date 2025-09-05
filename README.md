@@ -90,11 +90,6 @@ stroke-llm-evaluation/
 ├── 📄 run_evaluation.py                 # Simple runner script
 ├── 📊 浦沿卒中随访患者结果.xls           # Raw clinical data
 ├── 📁 results/                           # Evaluation results
-│   ├── llm_evaluation_results.csv       # LLM performance data
-│   └── baseline_evaluation_results.csv  # Baseline performance data
-├── 📁 plots/                            # Generated visualizations
-│   ├── model_comparison.png            # Model performance comparison
-│   └── cross_task_correlation.png      # Cross-task analysis
 ├── 📁 logs/                             # Execution logs
 ├── 📁 data/                             # Processed data
 └── 📁 prompts/                          # Prompt templates (optional)
